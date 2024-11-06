@@ -1,0 +1,34 @@
+@use '../1-base/main.scss';
+@use '../1-base/reset.scss';
+
+/*
+  ========================================
+  BANNERS
+  ========================================
+*/
+
+.bannerMain {
+  & .swiper {
+    position: relative;
+    overflow: hidden;
+
+    & .swiper-pagination {
+      bottom: 15px !important;
+    }
+
+    & .swiper-pagination-bullet {
+      width: 12px;
+      height: 12px;
+
+      &.swiper-pagination-bullet {
+        opacity: 1 !important;
+        background: #fff;
+        margin: 0 8px !important;
+
+        &-active {
+          background-color: main.$ColorTwo !important;
+        }
+      }
+    }
+  }
+}

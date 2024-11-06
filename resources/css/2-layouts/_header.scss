@@ -1,0 +1,14 @@
+@use '../1-base/main.scss';
+@use '../1-base/reset.scss';
+
+/*
+  ========================================
+  HEADER
+  ========================================
+*/
+
+header {
+  height: 100px;
+  width: 100%;
+  background-color: #888;
+}

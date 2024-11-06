@@ -1,0 +1,315 @@
+@use '../1-base/reset';
+@use '../1-base/main';
+
+/* 
+  ================================
+  MANAGER COOKIES
+  ================================
+*/
+
+.manager_cookies {
+    &:not(:has(.--active, .content.--active)) {
+        animation: hideContent 0s linear 10s forwards;
+    }
+
+    @keyframes hideContent {
+        to {
+            display: none;
+        }
+    }
+
+    & .__icon {
+        position: fixed;
+        bottom: 20px;
+        left: 20px;
+        width: 50px;
+        height: 50px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #cbcaca;
+        border-radius: 50%;
+        cursor: pointer;
+        z-index: 999999;
+        transition: all 0.5s;
+
+        &:hover {
+            background-color: main.$ColorMain;
+        }
+    }
+
+    & .__content,
+    & .__options {
+        max-width: 332px;
+        display: flex;
+        flex-direction: column;
+        border-radius: 10px;
+        padding: 20px;
+        background: #fff;
+        opacity: 0;
+        visibility: hidden;
+        position: fixed;
+        bottom: 70px;
+        left: 70px;
+        z-index: 999999;
+        transition-duration: 0.4s;
+        -moz-transition-duration: 0.4s;
+        -webkit-transition-duration: 0.4s;
+        box-shadow: 0px 3px 6px 0px rgb(0 0 0 / 16%);
+        -moz-box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.16);
+        -webkit-box-shadow: 0px 3px 6px 0px rgb(0 0 0 / 16%);
+
+        &.--active {
+            visibility: visible;
+            opacity: 1;
+        }
+    }
+
+    & .__content {
+        & span {
+            font-size: 11px;
+            line-height: 15px;
+            font-weight: bold;
+            margin-bottom: 15px;
+            color: #000;
+            font-family: 'Lato', sans-serif;
+        }
+    }
+
+    & .__options {
+
+        & h2,
+        & h3 {
+            font-size: 13px;
+            line-height: 18px;
+            font-weight: bold;
+            margin-bottom: 15px;
+            color: #000;
+            margin-bottom: 5px;
+            font-family: 'Lato', sans-serif;
+        }
+
+        & h2 {
+            margin-bottom: 25px;
+        }
+
+        & .__item {
+            &:not(:nth-last-child(2)) {
+                border-bottom: solid 1px #cbcaca;
+                margin-bottom: 20px;
+            }
+
+            & p {
+                font-size: 12px;
+                line-height: 17px;
+                margin-bottom: 15px;
+                color: #000;
+                margin-bottom: 5px;
+                font-family: 'Lato', sans-serif;
+                font-weight: 300;
+            }
+
+            & h4 {
+                font-family: 'Lato', sans-serif;
+                font-size: 13px;
+                line-height: 18px;
+                text-transform: uppercase;
+                color: #1A1A1A;
+            }
+
+            & .check {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+
+                padding: {
+                    top: 10px;
+                    bottom: 15px;
+                }
+
+                & .switch {
+                    position: relative;
+                    display: inline-block;
+                    width: 40px;
+                    min-width: 40px;
+                    height: 19px;
+
+                    & input {
+                        opacity: 0;
+                        width: 0;
+                        height: 0;
+
+                        &:checked+.roundSwitch {
+                            background-color: main.$ColorMain;
+                        }
+
+                        &:focus+.roundSwitch {
+                            box-shadow: 0 0 1px main.$ColorMain;
+                        }
+
+                        &:checked+.roundSwitch:before {
+                            -webkit-transform: translateX(16px);
+                            -ms-transform: translateX(16px);
+                            transform: translateX(16px);
+                        }
+                    }
+                }
+
+                .roundSwitch {
+                    position: absolute;
+                    cursor: pointer;
+                    top: 0;
+                    left: 0;
+                    right: 0;
+                    bottom: 0;
+                    background-color: #858882;
+                    -webkit-transition: .4s;
+                    transition: .4s;
+
+                    &.round {
+                        border-radius: 20px;
+
+                        &:before {
+                            border-radius: 20px;
+                        }
+                    }
+
+                    &.saveCookies {
+                        width: 100%;
+                        padding: 10px 10px;
+                        color: #000000;
+                        font-size: 12px;
+                        text-transform: uppercase;
+                        font-weight: bold;
+                        border-radius: 30px;
+                        text-align: center;
+                        font-family: 'Lato', sans-serif;
+                        background: main.$ColorMain;
+                        color: #fff;
+                    }
+
+                    &:before {
+                        position: absolute;
+                        content: "";
+                        height: 15px;
+                        width: 20px;
+                        left: 2px;
+                        bottom: 2px;
+                        background-color: white;
+                        -webkit-transition: .4s;
+                        transition: .4s;
+                    }
+                }
+            }
+        }
+    }
+
+    & .buttons {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 15px;
+
+        & a {
+            width: 45%;
+            padding: 10px 10px;
+            color: #000000;
+            font-size: 12px;
+            text-transform: uppercase;
+            font-weight: bold;
+            border-radius: 30px;
+            text-align: center;
+            font-family: 'Lato', sans-serif;
+            background: #fff;
+            cursor: pointer;
+            transition: all 0.5s;
+            box-shadow: 0px 3px 6px 0px rgb(0 0 0 / 16%);
+            -moz-box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.16);
+            -webkit-box-shadow: 0px 3px 6px 0px rgb(0 0 0 / 16%);
+
+            &.--ok,
+            &.--save {
+                background-color: main.$ColorMain;
+                color: #fff;
+            }
+
+            &.--save {
+                width: 100%;
+            }
+
+            &:hover {
+                opacity: 0.8;
+                box-shadow: 0px 3px 6px 0px rgb(0 0 0 / 30%);
+                -moz-box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.30);
+                -webkit-box-shadow: 0px 3px 6px 0px rgb(0 0 0 / 30%);
+            }
+        }
+    }
+
+    & button.close_cookies {
+        width: 30px;
+        height: 30px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border: none;
+        border-radius: 50%;
+        background: #fff;
+        cursor: pointer;
+        position: absolute;
+        top: -20px;
+        right: 12px;
+        transition: all 0.3s;
+        box-shadow: 0px 3px 6px 0px rgb(0 0 0 / 35%);
+        -moz-box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.35);
+        -webkit-box-shadow: 0px 3px 6px 0px rgb(0 0 0 / 35%);
+
+        &:hover {
+            color: #fff;
+            background-color: main.$ColorMain;
+        }
+    }
+
+}
+
+
+
+/* TABLET BIG - 500px*/
+@media (max-width: 500px) {
+    .manager_cookies {
+        & .__icon {
+            bottom: 15px;
+            left: 15px;
+            width: 45px;
+            height: 45px;
+        }
+
+        & .__content,
+        & .__options {
+            max-width: calc(100% - 30px);
+            padding: 15px;
+            left: 15px;
+        }
+
+        & .__content {
+            & span {
+                margin-bottom: 5px;
+            }
+        }
+
+        & .__options {
+            & h2 {
+                margin-bottom: 15px;
+            }
+
+            & .__item {
+                &:not(:nth-last-child(2)) {
+                    margin-bottom: 15px;
+                }
+            }
+        }
+
+        & .buttons {
+            margin-top: 5px;
+        }
+    }
+}

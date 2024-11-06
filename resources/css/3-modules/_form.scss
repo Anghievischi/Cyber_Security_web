@@ -1,0 +1,57 @@
+@use '../1-base/main.scss';
+@use '../1-base/reset.scss';
+
+/*
+  ========================================
+  FORMS
+  ========================================
+*/
+
+.--input-error {
+  font-size: reset.toRem(14);
+  color: #d30202;
+}
+
+.--form-success {
+  width: 100%;
+  margin-bottom: 10px;
+  border: 1px solid green;
+  padding: 10px;
+  border-radius: 10px;
+  text-align: center;
+  color: green;
+  font-weight: 600;
+}
+
+.--form-error {
+  width: 100%;
+  margin-bottom: 10px;
+  border: 1px solid #dd0303;
+  padding: 10px;
+  border-radius: 10px;
+  text-align: center;
+  color: #dd0303;
+  font-weight: 600;
+}
+
+.__forms {
+  & .input {
+    margin-bottom: 10px;
+
+    & input,
+    & textarea,
+    & select {
+      width: 100%;
+      height: 40px;
+      border-radius: 8px;
+      border: solid 1px #eee;
+      padding: 10px;
+      outline: none;
+      transition: all 0.3s;
+
+      &:focus {
+        box-shadow: 5px 5px 10px -4px #bbb;
+      }
+    }
+  }
+}

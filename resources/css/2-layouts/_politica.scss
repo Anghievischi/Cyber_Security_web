@@ -1,0 +1,118 @@
+@use '../1-base/main.scss';
+@use '../1-base/reset.scss';
+
+/*
+  ========================================
+  POLITICA
+  ========================================
+*/
+
+.politica {
+    & h2 {
+        font-size: reset.toRem(25);
+        font-weight: 600;
+        margin-bottom: 30px;
+        margin-top: 50px;
+        text-decoration: underline;
+        color: main.$ColorMain;
+    }
+
+    & h3 {
+        font-size: reset.toRem(18);
+        font-weight: 400;
+        font-style: italic;
+        margin: 30px 0;
+        color: main.$ColorZero;
+
+        &::before {
+            content: '•';
+            margin-right: 10px;
+        }
+    }
+
+    & .--red * {
+        color: #d05b5b;
+    }
+
+    & p {
+        font-size: reset.toRem(16);
+        line-height: 20px;
+        color: main.$ColorOne;
+        margin-bottom: 20px;
+
+        & span {
+            font-weight: 600;
+            color: main.$ColorZero;
+        }
+    }
+
+    & a {
+        color: main.$ColorZero;
+        transition: all 0.3s;
+
+        &:hover {
+            color: main.$ColorTwo;
+        }
+    }
+
+    & .--abc {
+        margin-left: 20px;
+        line-height: 25px;
+    }
+}
+
+/* RESPONSIVE */
+
+/* DESKTOP - 1200px*/
+@include main.breakpoint(smashDesktop) {
+    .politica {
+        & h2 {
+            font-size: reset.toRem(22);
+            margin-bottom: 20px;
+            margin-top: 40px;
+        }
+
+        & h3 {
+            font-size: reset.toRem(17);
+
+        }
+
+        & p {
+            font-size: reset.toRem(15);
+        }
+
+        & a {
+            font-size: reset.toRem(15);
+        }
+    }
+}
+
+/* TABLET BIG - 900px*/
+@include main.breakpoint(smashTabletBig) {
+    .politica {
+        & h2 {
+            font-size: reset.toRem(20);
+            margin-bottom: 20px;
+            margin-top: 40px;
+        }
+
+        & h3 {
+            font-size: reset.toRem(16);
+
+        }
+
+        & p {
+            font-size: reset.toRem(14);
+            margin-bottom: 10px;
+        }
+
+        & a {
+            font-size: reset.toRem(14);
+        }
+
+        & .--abc {
+            margin-left: 10px;
+            line-height: 20px;
+        }
+    }
+}

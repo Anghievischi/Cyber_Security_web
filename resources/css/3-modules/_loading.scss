@@ -1,0 +1,57 @@
+@use '../1-base/reset';
+@use '../1-base/main';
+
+/* 
+  ================================
+  LOADING
+  ================================
+*/
+
+.form_loading {
+  display: flex;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,.5);
+  z-index: 100
+}
+
+.form_loading_box {
+  margin: auto;
+  text-align: center;
+  color: #fff;
+  font-weight: 700;
+  text-shadow: 1px 1px 1px rgba(0,0,0,.5)
+}
+
+.form_loading svg path {
+  fill: main.$ColorMain;
+}
+
+.form_loading_box_title {
+  margin-top: 15px;
+  font-weight: 700;
+  color: #fff;
+}
+
+@-webkit-keyframes spin {
+  0% {
+      -webkit-transform: rotate(0deg)
+  }
+
+  100% {
+      -webkit-transform: rotate(360deg)
+  }
+}
+
+@keyframes spin {
+  0% {
+      transform: rotate(0deg)
+  }
+
+  100% {
+      transform: rotate(360deg)
+  }
+}
