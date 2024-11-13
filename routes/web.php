@@ -7,7 +7,6 @@ use App\Http\Controllers\Front\ContatoController;
 use App\Http\Controllers\Front\PoliticaController;
 use App\Http\Controllers\Auth\SocialAuthController;
 
-
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
 Route::get('/contato', [ContatoController::class, 'index'])->name('contato');
@@ -20,19 +19,21 @@ Route::get('/home', function () {
     return view('home');
 })->name('home');
 
+Route::get('/login', function () {
+    return view('login');
+})->name('login.form');
 
-Route::get('/login', [AuthController::class, 'showLoginForm'])->name('login');
+Route::get('/register', function () {
+    return view('register');
+})->name('register.form');
+
+// Rota para autenticação por JWT
 Route::post('/login', [AuthController::class, 'login']);
-
+Route::post('/register', [AuthController::class, 'register']);
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
-Route::get('/register', [AuthController::class, 'showRegisterForm'])->name('register');
-Route::post('/register', [AuthController::class, 'register']);
-
-// Rotas de autenticação com Google
+// Rotas de autenticação com Google e Facebook
 Route::get('/login/google', [SocialAuthController::class, 'redirectToGoogle'])->name('login.google');
 Route::get('/login/google/callback', [SocialAuthController::class, 'handleGoogleCallback']);
-
-// Rotas de autenticação com Facebook
 Route::get('/login/facebook', [SocialAuthController::class, 'redirectToFacebook'])->name('login.facebook');
 Route::get('/login/facebook/callback', [SocialAuthController::class, 'handleFacebookCallback']);

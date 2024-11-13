@@ -4,41 +4,13 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Tymon\JWTAuth\Facades\JWTAuth;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
 class AuthController extends Controller
 {
-    public function showLoginForm()
-    {
-        return view('login');
-    }
-
-    public function login(Request $request)
-    {
-        $credentials = $request->only('email', 'password');
-
-        if (Auth::attempt($credentials)) {
-            return redirect()->route('home');
-        }
-
-        return back()->withErrors(['error' => 'Credenciais inválidas']);
-    }
-
-    public function logout(Request $request)
-    {
-        Auth::logout();
-        $request->session()->invalidate();
-        $request->session()->regenerateToken();
-
-        return redirect()->route('home')->with('success', 'Logout realizado com sucesso.');
-    }
-
-    public function showRegisterForm()
-    {
-        return view('register');
-    }
-
+    // Registro de novo usuário com JWT
     public function register(Request $request)
     {
         $request->validate([
@@ -47,12 +19,40 @@ class AuthController extends Controller
             'password' => 'required|string|min:8|confirmed',
         ]);
 
-        User::create([
+        $user = User::create([
             'name' => $request->name,
             'email' => $request->email,
             'password' => Hash::make($request->password),
         ]);
 
-        return redirect()->route('login')->with('success', 'Conta criada com sucesso. Faça login.');
+        // Gera o token JWT para o usuário registrado
+        $token = JWTAuth::fromUser($user);
+
+        return response()->json(['user' => $user, 'token' => $token], 201);
+    }
+
+    // Login com JWT
+    public function login(Request $request)
+    {
+        $credentials = $request->only('email', 'password');
+
+        if (!$token = Auth::guard('api')->attempt($credentials)) {
+            return response()->json(['error' => 'Credenciais inválidas'], 401);
+        }
+
+        return response()->json(['token' => $token], 200);
+    }
+
+    // Logout e revogação do token
+    public function logout()
+    {
+        Auth::guard('api')->logout();
+        return response()->json(['message' => 'Logout realizado com sucesso.']);
+    }
+
+    // Retorna o usuário autenticado
+    public function user()
+    {
+        return response()->json(Auth::guard('api')->user());
     }
 }
