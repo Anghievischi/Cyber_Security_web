@@ -13,8 +13,8 @@
         @yield('title') - WEBSITE
     </title>
 
-    {{-- <link href="{{ asset('dist/style.css') }}" rel="stylesheet"> --}}
-    <link rel="stylesheet" href="{{ mix('resources/css/style.css') }}">
+    <link href="{{ asset('dist/style.css') }}" rel="stylesheet">
+    {{-- <link rel="stylesheet" href="{{ mix('resources/css/style.css') }}"> --}}
     @stack('style')
 </head>
 
