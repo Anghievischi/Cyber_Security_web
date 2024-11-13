@@ -15,10 +15,6 @@
                     <label for="password" class="form-label">Senha:</label>
                     <input type="password" name="password" class="form-input" required>
                 </div>
-                <div class="remember-me">
-                    <input type="checkbox" name="remember" class="remember-checkbox">
-                    <label for="remember" class="remember-label">Lembre de mim</label>
-                </div>
                 <button type="submit" class="login-button">Login</button>
             </form>
             @if ($errors->any())

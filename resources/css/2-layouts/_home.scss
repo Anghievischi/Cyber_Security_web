@@ -17,7 +17,7 @@
     padding: 3rem 2rem;
     border-radius: 15px;
     width: 100%;
-    max-width: 400px;
+    max-width: 500px;
     box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.5);
 }
 
@@ -59,21 +59,21 @@
 }
 
 .btn-login {
-    background-color: #619bda;
+    background-color: #3e4a5a;
     color: #fff;
 
     &:hover {
-        background-color: #507bb8;
+        background-color: #55687d;
         transform: translateY(-2px);
     }
 }
 
 .btn-register {
-    background-color: #4caf50;
+    background-color: #3e4a5a;
     color: #fff;
 
     &:hover {
-        background-color: #43a047;
+        background-color: #55687d;
         transform: translateY(-2px);
     }
 }

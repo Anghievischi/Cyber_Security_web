@@ -8,7 +8,7 @@
 @section('content')
     <section class="home">
         <div class="welcome-container">
-            <h1 class="welcome-title">Bem-vindo ao Nosso Site!</h1>
+            <h1 class="welcome-title">Bem-vindo!</h1>
             @auth
                 <p class="welcome-message">Olá, {{ auth()->user()->name }}!</p>
                 <p class="welcome-instruction">Explore as funcionalidades e aproveite seu tempo conosco.</p>
@@ -23,6 +23,11 @@
                 <div class="auth-buttons">
                     <a href="{{ route('login') }}" class="btn-login">Login</a>
                     <a href="{{ route('register') }}" class="btn-register">Cadastro</a>
+                </div>
+                <div class="social-buttons">
+                    <!-- Botões de login social -->
+                    <a href="{{ route('login.google') }}" class="btn-social btn-google">Google</a>
+                    <a href="{{ route('login.facebook') }}" class="btn-social btn-facebook">Facebook</a>
                 </div>
             @endauth
         </div>

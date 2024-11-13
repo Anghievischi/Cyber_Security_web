@@ -56,18 +56,6 @@ body.login-page {
     }
 }
 
-.remember-me {
-    display: flex;
-    align-items: center;
-    color: #fff;
-    font-size: 0.9rem;
-    margin-bottom: 1rem;
-}
-
-.remember-checkbox {
-    margin-right: 0.5rem;
-}
-
 .login-button {
     background-color: #3e4a5a;
     color: #fff;
@@ -102,5 +90,40 @@ body.login-page {
         &:hover {
             text-decoration: underline;
         }
+    }
+}
+
+.btn-social {
+    display: inline-block;
+    padding: 0.8rem 1.5rem;
+    border-radius: 5px;
+    font-size: 1rem;
+    font-weight: bold;
+    text-decoration: none;
+    color: #fff;
+    transition:
+        background-color 0.3s,
+        transform 0.3s;
+    margin-top: 1rem;
+    width: 100%;
+    max-width: 320px;
+    text-align: center;
+}
+
+.btn-google {
+    background-color: #db4437;
+
+    &:hover {
+        background-color: #c23321;
+        transform: translateY(-2px);
+    }
+}
+
+.btn-facebook {
+    background-color: #4267b2;
+
+    &:hover {
+        background-color: #365899;
+        transform: translateY(-2px);
     }
 }
