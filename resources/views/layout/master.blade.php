@@ -39,7 +39,7 @@
     @endcomponent --}}
 
     {{-- SCRIPTS --}}
-    <script src="{{ asset('js/creator.js') }}"></script>
+    {{-- <script src="{{ asset('js/creator.js') }}"></script> --}}
     <script src="{{ asset('libs/jquery.min.js') }}"></script>
     <script src="{{ asset('libs/jquery.form.js') }}"></script>
     <script src="{{ asset('libs/jquery-ui.js') }}"></script>
