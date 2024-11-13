@@ -351,6 +351,61 @@ p {
   transform: translateY(-2px);
 }
 
+.btn-social {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.8rem 1.5rem;
+  border-radius: 5px;
+  font-size: 1rem;
+  font-weight: bold;
+  text-decoration: none;
+  color: #fff;
+  transition: background-color 0.3s, transform 0.3s;
+  margin-top: 1rem;
+  width: 100%;
+  max-width: 320px;
+  text-align: center;
+}
+.btn-social svg,
+.btn-social i {
+  margin-right: 0.5rem;
+  font-size: 1.2rem;
+}
+
+.btn-google {
+  background-color: #db4437;
+}
+.btn-google:hover {
+  background-color: #c23321;
+  transform: translateY(-2px);
+}
+
+.btn-facebook {
+  background-color: #4267b2;
+}
+.btn-facebook:hover {
+  background-color: #365899;
+  transform: translateY(-2px);
+}
+
+.separator {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  max-width: 320px;
+  margin: 1rem auto;
+  text-align: center;
+  font-size: 0.9rem;
+  color: #a9a9a9;
+}
+.separator:before, .separator:after {
+  content: "";
+  flex: 1;
+  border-bottom: 1px solid #a9a9a9;
+  margin: 0 0.5rem;
+}
+
 body.login-page {
   background-color: #1e1e1e;
   display: flex;

@@ -3,6 +3,7 @@
 
 @push('style')
     <link rel="stylesheet" href="{{ asset('libs/swiper/swiper.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 @endpush
 
 @section('content')
@@ -24,10 +25,19 @@
                     <a href="{{ route('login') }}" class="btn-login">Login</a>
                     <a href="{{ route('register') }}" class="btn-register">Cadastro</a>
                 </div>
-                <div class="social-buttons">
-                    <!-- Botões de login social -->
-                    <a href="{{ route('login.google') }}" class="btn-social btn-google">Google</a>
-                    <a href="{{ route('login.facebook') }}" class="btn-social btn-facebook">Facebook</a>
+
+                <!-- Linha separadora -->
+                <div class="separator">
+                    <span>ou</span>
+                </div>
+
+                <div class="auth-buttons">
+                    <a href="{{ route('login.google') }}" class="btn-social btn-google">
+                        <i class="fab fa-google"></i> Google
+                    </a>
+                    <a href="{{ route('login.facebook') }}" class="btn-social btn-facebook">
+                        <i class="fab fa-facebook-f"></i> Facebook
+                    </a>
                 </div>
             @endauth
         </div>
