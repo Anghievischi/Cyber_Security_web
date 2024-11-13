@@ -1,6 +1,4 @@
 
-markdown
-Copiar código
 # Instalação da Base em Laravel
 
 Este documento fornece um script completo para instalar e configurar uma aplicação Laravel, incluindo a instalação do Composer, configuração de dependências, ajustes no arquivo `.env`, criação de links de armazenamento, limpeza de cache e execução das migrations.
