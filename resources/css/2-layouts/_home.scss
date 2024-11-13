@@ -1,10 +1,91 @@
-@use '../1-base/main.scss';
-@use '../1-base/reset.scss';
+@use "../1-base/main.scss";
+@use "../1-base/reset.scss";
 
-/*
-  ========================================
-  HOME
-  ========================================
-*/
+.home {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background: linear-gradient(135deg, #619bda, #3e4a5a);
+    font-family: Arial, sans-serif;
+    color: #fff;
+}
 
-.home {}
+.welcome-container {
+    text-align: center;
+    background-color: rgba(43, 43, 43, 0.8);
+    padding: 3rem 2rem;
+    border-radius: 15px;
+    width: 100%;
+    max-width: 400px;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.5);
+}
+
+.welcome-title {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: #ecc382;
+}
+
+.welcome-message {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+}
+
+.welcome-instruction {
+    font-size: 1rem;
+    margin-bottom: 2rem;
+    color: #d1d1d1;
+}
+
+.auth-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.btn-login,
+.btn-register,
+.btn-logout {
+    display: inline-block;
+    padding: 0.8rem 1.5rem;
+    border-radius: 5px;
+    font-size: 1rem;
+    font-weight: bold;
+    text-decoration: none;
+    transition:
+        background-color 0.3s,
+        transform 0.3s;
+}
+
+.btn-login {
+    background-color: #619bda;
+    color: #fff;
+
+    &:hover {
+        background-color: #507bb8;
+        transform: translateY(-2px);
+    }
+}
+
+.btn-register {
+    background-color: #4caf50;
+    color: #fff;
+
+    &:hover {
+        background-color: #43a047;
+        transform: translateY(-2px);
+    }
+}
+
+.btn-logout {
+    background-color: #ff4d4d;
+    color: #fff;
+    margin-top: 1.5rem;
+    display: inline-block;
+
+    &:hover {
+        background-color: #e04040;
+        transform: translateY(-2px);
+    }
+}

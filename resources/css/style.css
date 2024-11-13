@@ -168,8 +168,8 @@ body {
   font-family: "Poppins", sans-serif;
   color: #858688;
   line-height: 1.6;
-  font-weight: 300;
-  letter-spacing: 0.24px;
+  font-weight: 400;
+  letter-spacing: 0px;
 }
 
 body * {
@@ -179,6 +179,41 @@ body * {
 
 p {
   font-size: 1rem;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  list-style: none;
+  gap: 5px;
+}
+
+.pagination li a,
+.pagination li span {
+  display: inline-block;
+  padding: 8px 12px;
+  border-radius: 4px;
+  background-color: #0F0F0F;
+  color: #fff;
+  text-decoration: none;
+  transition: background-color 0.3s;
+}
+
+.pagination li a:hover,
+.pagination li span:hover {
+  background-color: #1f284b;
+}
+
+.pagination li.active span {
+  background-color: #1f284b;
+  font-weight: bold;
+}
+
+.swiper-button-prev,
+.swiper-button-next,
+.swiper-pagination {
+  z-index: 8 !important;
 }
 
 /*CONTAINER*/
@@ -227,22 +262,288 @@ p {
   HEADER
   ========================================
 */
-header {
-  height: 100px;
-  width: 100%;
-  background-color: #888;
-}
-
 /*
   ========================================
   FOOTER
   ========================================
 */
-/*
-  ========================================
-  HOME
-  ========================================
-*/
+.home {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background: linear-gradient(135deg, #619bda, #3e4a5a);
+  font-family: Arial, sans-serif;
+  color: #fff;
+}
+
+.welcome-container {
+  text-align: center;
+  background-color: rgba(43, 43, 43, 0.8);
+  padding: 3rem 2rem;
+  border-radius: 15px;
+  width: 100%;
+  max-width: 400px;
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.5);
+}
+
+.welcome-title {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: #ecc382;
+}
+
+.welcome-message {
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+}
+
+.welcome-instruction {
+  font-size: 1rem;
+  margin-bottom: 2rem;
+  color: #d1d1d1;
+}
+
+.auth-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.btn-login,
+.btn-register,
+.btn-logout {
+  display: inline-block;
+  padding: 0.8rem 1.5rem;
+  border-radius: 5px;
+  font-size: 1rem;
+  font-weight: bold;
+  text-decoration: none;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+.btn-login {
+  background-color: #619bda;
+  color: #fff;
+}
+.btn-login:hover {
+  background-color: #507bb8;
+  transform: translateY(-2px);
+}
+
+.btn-register {
+  background-color: #4caf50;
+  color: #fff;
+}
+.btn-register:hover {
+  background-color: #43a047;
+  transform: translateY(-2px);
+}
+
+.btn-logout {
+  background-color: #ff4d4d;
+  color: #fff;
+  margin-top: 1.5rem;
+  display: inline-block;
+}
+.btn-logout:hover {
+  background-color: #e04040;
+  transform: translateY(-2px);
+}
+
+body.login-page {
+  background-color: #1e1e1e;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+.login-container {
+  background-color: #2b2b2b;
+  padding: 2rem;
+  border-radius: 10px;
+  width: 320px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.login-title {
+  color: #fff;
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+}
+
+.form-group {
+  width: 100%;
+  margin-bottom: 1rem;
+}
+
+.form-label {
+  display: block;
+  color: #fff;
+  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
+}
+
+.form-input {
+  width: 100%;
+  padding: 0.8rem;
+  border-radius: 5px;
+  border: 1px solid #3d3d3d;
+  background-color: #2b2b2b;
+  color: #fff;
+  font-size: 1rem;
+  box-sizing: border-box;
+}
+.form-input:focus {
+  outline: none;
+  border-color: #565656;
+}
+
+.remember-me {
+  display: flex;
+  align-items: center;
+  color: #fff;
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+}
+
+.remember-checkbox {
+  margin-right: 0.5rem;
+}
+
+.login-button {
+  background-color: #3e4a5a;
+  color: #fff;
+  padding: 0.8rem;
+  font-size: 1rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 100%;
+  transition: background-color 0.3s;
+}
+.login-button:hover {
+  background-color: #55687d;
+}
+
+.error-message {
+  color: #ff4d4d;
+  font-size: 0.9rem;
+  margin-top: 1rem;
+}
+
+.signup-link {
+  color: #a9a9a9;
+  font-size: 0.9rem;
+  margin-top: 1rem;
+}
+.signup-link a {
+  color: #619bda;
+  text-decoration: none;
+}
+.signup-link a:hover {
+  text-decoration: underline;
+}
+
+body.register-page {
+  background-color: #1e1e1e;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+.register-container {
+  background-color: #2b2b2b;
+  padding: 2rem;
+  border-radius: 10px;
+  width: 320px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.register-title {
+  color: #fff;
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+}
+
+.form-group {
+  width: 100%;
+  margin-bottom: 1rem;
+}
+
+.form-label {
+  display: block;
+  color: #fff;
+  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
+}
+
+.form-input {
+  width: 100%;
+  padding: 0.8rem;
+  border-radius: 5px;
+  border: 1px solid #3d3d3d;
+  background-color: #2b2b2b;
+  color: #fff;
+  font-size: 1rem;
+  box-sizing: border-box;
+}
+.form-input:focus {
+  outline: none;
+  border-color: #565656;
+}
+
+.register-button {
+  background-color: #3e4a5a;
+  color: #fff;
+  padding: 0.8rem;
+  font-size: 1rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 100%;
+  transition: background-color 0.3s;
+}
+.register-button:hover {
+  background-color: #55687d;
+}
+
+.error-message {
+  color: #ff4d4d;
+  font-size: 0.9rem;
+  margin-top: 1rem;
+  list-style: none;
+  padding: 0;
+}
+.error-message li {
+  margin-bottom: 0.5rem;
+}
+
+.login-link {
+  color: #a9a9a9;
+  font-size: 0.9rem;
+  margin-top: 1rem;
+}
+.login-link a {
+  color: #619bda;
+  text-decoration: none;
+}
+.login-link a:hover {
+  text-decoration: underline;
+}
+
 /*
   ========================================
   POLITICA

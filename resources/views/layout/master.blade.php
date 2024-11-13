@@ -13,8 +13,8 @@
         @yield('title') - WEBSITE
     </title>
 
-    <link href="{{ asset('dist/style.css') }}" rel="stylesheet">
-    {{-- <link rel="stylesheet" href="{{ mix('resources/css/style.css') }}"> --}}
+    {{-- <link href="{{ asset('dist/style.css') }}" rel="stylesheet"> --}}
+    <link rel="stylesheet" href="{{ mix('resources/css/style.css') }}">
     @stack('style')
 </head>
 
@@ -24,19 +24,19 @@
     @endcomponent
 
     {{-- HEADER --}}
-    @component('components.Header')
-    @endcomponent
+    {{-- @component('components.Header')
+    @endcomponent --}}
 
     {{-- CONTENT --}}
     <main>@yield('content')</main>
 
     {{-- FOOTER --}}
-    @component('components.Footer')
-    @endcomponent
+    {{-- @component('components.Footer')
+    @endcomponent --}}
 
     {{-- MANAGER COOKIES --}}
-    @component('components.ManagerCookies')
-    @endcomponent
+    {{-- @component('components.ManagerCookies')
+    @endcomponent --}}
 
     {{-- SCRIPTS --}}
     <script src="{{ asset('js/creator.js') }}"></script>
