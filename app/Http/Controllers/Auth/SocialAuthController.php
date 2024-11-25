@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Auth;
 use App\Models\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Str;
 use Laravel\Socialite\Facades\Socialite;
 
 class SocialAuthController extends Controller
@@ -18,9 +19,16 @@ class SocialAuthController extends Controller
     // Callback do Google
     public function handleGoogleCallback()
     {
-        $user = Socialite::driver('google')->user();
-        $this->loginOrRegisterUser($user, 'google');
-        return redirect()->route('home');
+        try {
+            $user = Socialite::driver('google')->user();
+            $this->loginOrRegisterUser($user, 'google');
+    
+            // Redirecionar o usuário autenticado
+            return redirect()->route('home'); // ou qualquer rota configurada
+        } catch (\Exception $e) {
+            // Tratamento de erro (caso o login falhe)
+            return redirect()->route('login.form')->with('error', 'Falha no login. Por favor, tente novamente.');
+        }
     }
 
     // Redireciona para o Facebook
@@ -47,6 +55,7 @@ class SocialAuthController extends Controller
                 'provider' => $provider,
                 'provider_id' => $socialUser->getId(),
                 'email_verified_at' => now(),
+                'password' => bcrypt(Str::random(16)),
             ]
         );
 

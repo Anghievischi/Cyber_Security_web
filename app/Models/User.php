@@ -21,6 +21,9 @@ class User extends Authenticatable implements JWTSubject
         'name',
         'email',
         'password',
+        'provider',      // Nome do provedor (ex.: google)
+        'provider_id',   // ID retornado pelo provedor
+        'email_verified_at',
     ];
 
     /**
