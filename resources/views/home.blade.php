@@ -26,9 +26,9 @@
                 <a href="{{ route('login.google') }}" class="btn-social btn-google">
                     <i class="fab fa-google"></i> Google
                 </a>
-                <a href="{{ route('login.facebook') }}" class="btn-social btn-facebook">
+                {{-- <a href="{{ route('login.facebook') }}" class="btn-social btn-facebook">
                     <i class="fab fa-facebook-f"></i> Facebook
-                </a>
+                </a> --}}
             </div>
 
             <a href="/admin" id="admin-button" class="btn-admin" style="display: none;">Painel Admin</a>
