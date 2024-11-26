@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Http\Request;
 use App\Http\Controllers\Api\CepAPI;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
@@ -13,3 +14,7 @@ Route::middleware('auth:api')->get('/user', [AuthController::class, 'user'])->na
 // Outras rotas da API
 Route::get('/{cep}/json', [CepAPI::class, 'getCEP']);
 Route::post('/salvar', [EnderecoController::class, 'index'])->name('endereco');
+
+Route::middleware('auth:api')->get('/user', function (Request $request) {
+    return $request->user();
+});

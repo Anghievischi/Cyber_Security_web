@@ -2,11 +2,11 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
+use Laravel\Socialite\Facades\Socialite;
 use App\Http\Controllers\Front\HomeController;
 use App\Http\Controllers\Front\ContatoController;
 use App\Http\Controllers\Front\PoliticaController;
 use App\Http\Controllers\Auth\SocialAuthController;
-use Laravel\Socialite\Facades\Socialite;
 
 
 

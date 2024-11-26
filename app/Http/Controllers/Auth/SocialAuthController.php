@@ -3,10 +3,12 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Models\User;
+use Illuminate\Support\Str;
+use Tymon\JWTAuth\Facades\JWTAuth;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Str;
 use Laravel\Socialite\Facades\Socialite;
+
 
 class SocialAuthController extends Controller
 {
@@ -20,13 +22,12 @@ class SocialAuthController extends Controller
     public function handleGoogleCallback()
     {
         try {
-            $user = Socialite::driver('google')->user();
-            $this->loginOrRegisterUser($user, 'google');
-    
-            // Redirecionar o usuário autenticado
-            return redirect()->route('home'); // ou qualquer rota configurada
+            $socialUser = Socialite::driver('google')->user();
+            $token = $this->loginOrRegisterUser($socialUser, 'google');
+
+            // Retorna uma view que armazena o token
+            return view('auth.social_login', ['token' => $token]);
         } catch (\Exception $e) {
-            // Tratamento de erro (caso o login falhe)
             return redirect()->route('login.form')->with('error', 'Falha no login. Por favor, tente novamente.');
         }
     }
@@ -59,6 +60,9 @@ class SocialAuthController extends Controller
             ]
         );
 
-        Auth::login($user);
+        // Gerar o token JWT para o usuário autenticado
+        $token = JWTAuth::fromUser($user);
+
+        return $token;
     }
 }

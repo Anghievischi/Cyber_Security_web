@@ -59,7 +59,7 @@
                         // Armazene o token no localStorage
                         localStorage.setItem('token', data.token);
                         // Redirecione para a página inicial
-                        window.location.href = '/home';
+                        window.location.href = '/';
                     } else {
                         // Exiba uma mensagem de erro
                         const errorMessage = document.getElementById('error-message');

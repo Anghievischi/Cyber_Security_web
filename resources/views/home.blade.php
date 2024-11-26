@@ -84,12 +84,34 @@
 
         // Função para logout
         function logout() {
-            localStorage.removeItem('token');
-            window.location.reload(); // Recarrega a página para mostrar o estado de não autenticado
+            const token = localStorage.getItem('token');
+            if (token) {
+                fetch('/logout', {
+                        method: 'POST',
+                        headers: {
+                            'Authorization': 'Bearer ' + token,
+                            'Content-Type': 'application/json',
+                            'X-CSRF-TOKEN': '{{ csrf_token() }}'
+                        }
+                    })
+                    .then(response => {
+                        if (response.ok) {
+                            localStorage.removeItem('token');
+                            window.location.reload();
+                        } else {
+                            throw new Error('Erro ao fazer logout');
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Erro:', error);
+                    });
+            } else {
+                localStorage.removeItem('token');
+                window.location.reload();
+            }
         }
 
         // Executa a função getUserData ao carregar a página
         document.addEventListener('DOMContentLoaded', getUserData);
     </script>
-
 @endsection

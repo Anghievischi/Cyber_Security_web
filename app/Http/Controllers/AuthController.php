@@ -44,9 +44,14 @@ class AuthController extends Controller
     }
 
     // Logout e revogação do token
-    public function logout()
+    public function logout(Request $request)
     {
         Auth::guard('api')->logout();
+
+        // Opcionalmente, você pode invalidar a sessão aqui se estiver usando sessões
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+
         return response()->json(['message' => 'Logout realizado com sucesso.']);
     }
 
