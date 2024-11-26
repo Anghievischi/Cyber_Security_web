@@ -31,6 +31,7 @@
                 </a>
             </div>
 
+            <a href="/admin" id="admin-button" class="btn-admin" style="display: none;">Painel Admin</a>
             <!-- Botão de logout para usuários logados -->
             <a href="#" id="logout-button" class="btn-logout" style="display: none;" onclick="logout()">Sair</a>
         </div>
@@ -45,6 +46,7 @@
             const separator = document.getElementById('separator');
             const socialAuthButtons = document.getElementById('social-auth-buttons');
             const logoutButton = document.getElementById('logout-button');
+            const adminButton = document.getElementById('admin-button');
 
             if (!token) {
                 // Usuário não autenticado
@@ -70,6 +72,12 @@
                     welcomeMessage.textContent =
                         `Olá, ${user.name}! Explore as funcionalidades e aproveite seu tempo conosco.`;
                     logoutButton.style.display = 'block';
+
+                    // Verificar se o usuário é admin
+                    if (user.role === 'admin') {
+                        // Mostrar o botão de admin
+                        adminButton.style.display = 'block';
+                    }
                 } else {
                     throw new Error('Erro ao obter dados do usuário');
                 }

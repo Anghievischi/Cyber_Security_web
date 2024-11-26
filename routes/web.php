@@ -40,3 +40,7 @@ Route::get('/google', [SocialAuthController::class, 'redirectToGoogle'])->name('
 Route::get('/google/callback', [SocialAuthController::class, 'handleGoogleCallback']);
 Route::get('/login/facebook', [SocialAuthController::class, 'redirectToFacebook'])->name('login.facebook');
 Route::get('/login/facebook/callback', [SocialAuthController::class, 'handleFacebookCallback']);
+
+// Route::get('/admin', function () {
+//     // Lógica da página de admin
+// })->middleware(['auth', 'admin']);
