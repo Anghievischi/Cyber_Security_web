@@ -42,7 +42,6 @@ class UsersResource extends Resource
                                 Forms\Components\TextInput::make('password')
                                     ->Label('Senha')
                                     ->password()
-                                    ->required()
                                     ->maxLength(255)
                                     ->dehydrateStateUsing(fn($state) => Hash::make($state)),
                                 Forms\Components\ToggleButtons::make('role')

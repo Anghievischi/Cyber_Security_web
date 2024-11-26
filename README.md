@@ -1,4 +1,3 @@
-
 # Instalação da Base em Laravel
 
 Este documento fornece um script completo para instalar e configurar uma aplicação Laravel, incluindo a instalação do Composer, configuração de dependências, ajustes no arquivo `.env`, criação de links de armazenamento, limpeza de cache e execução das migrations.
@@ -36,7 +35,7 @@ cp .env.example .env
 
 ```bash
 APP_URL=http://suporte.studioalpha.test
-DB_CONNECTION=mysql  
+DB_CONNECTION=mysql
 DB_HOST=localhost
 DB_PORT=3306
 DB_DATABASE=gwmtozzo_seminovos
@@ -80,4 +79,10 @@ php artisan make:filament-user
 
 ```bash
 php artisan jwt:secret
+```
+
+## Passo 9: Rodar o projeto
+
+```bash
+php artisan serve
 ```
